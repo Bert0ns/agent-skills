@@ -1,122 +1,115 @@
 ---
 name: using-agent-skills
-description: Discovers and invokes agent skills in this repository. Use when starting a session, or when you need to decide which skill or workflow applies to the task at hand. This is the meta-skill router that governs how all other skills are discovered and invoked.
+description: Discovers and selects skills in this repository. Use when starting a session or deciding which skill applies to a task.
 ---
 
-# Using Agent Skills
+# Using agent skills
 
 ## Overview
 
-This repository (`Bert0ns/agent-skills`) is a curated collection of production-grade engineering workflow skills for coding agents (Antigravity, Claude Code, Cursor, Codex, Windsurf, Gemini CLI), indexed on [skills.sh](https://skills.sh/).
+This repository (`Bert0ns/agent-skills`) contains engineering skills for coding agents, indexed on [skills.sh](https://skills.sh/). Compatible agents include Antigravity, Claude Code, Cursor, Codex, Windsurf, and Gemini CLI.
 
-Each skill encodes a disciplined process, standard, or automation workflow. This meta-skill routes incoming requests to the appropriate skill across every phase of development.
+This skill routes incoming tasks to the matching skill for each stage of development.
 
 ---
 
-## Skill Discovery & Routing
+## Skill discovery and routing
 
-When a task arrives, identify the development intent and invoke the matching skill:
+When a task arrives, identify the primary goal and invoke the matching skill:
 
 ```mermaid
 flowchart TD
-    Task([Task Arrives]) --> Intent{What is the primary intent?}
+    Task([Task arrives]) --> Intent{What is the primary goal?}
 
-    %% Ideation & Scoping
-    Intent -->|Need to clarify vague idea| Idea[idea-refine]
-    Intent -->|Stress-test thinking / assumptions| Grill[grill-me / grilling]
-    Intent -->|Setup / optimize agent context & memory| Context[context-engineering]
-    Intent -->|Compress agent conversation / save tokens| Cave[caveman]
+    %% Ideation and scoping
+    Intent -->|Clarify vague idea| Idea[idea-refine]
+    Intent -->|Test assumptions| Grill[grill-me / grilling]
+    Intent -->|Manage context and token limits| Context[context-engineering]
+    Intent -->|Trim conversation tokens| Cave[caveman]
 
-    %% Architecture & Design
-    Intent -->|Reverse-engineer system design & C4 docs| SysDocs[system-design-docs]
-    Intent -->|Audit module depth & refactor structure| ArchSmells[improve-codebase-architecture]
-    Intent -->|Keep implementation minimal / YAGNI / lazy senior dev| Pony[ponytail]
-    Intent -->|Strict TypeScript patterns & boundary types| TS[typescript-best-practices]
+    %% Architecture and design
+    Intent -->|Extract C4 architecture docs| SysDocs[system-design-docs]
+    Intent -->|Find shallow modules| ArchSmells[improve-codebase-architecture]
+    Intent -->|Keep changes minimal and avoid extra abstractions| Pony[ponytail]
+    Intent -->|TypeScript types and boundary checks| TS[typescript-best-practices]
 
-    %% Code Quality & Review
-    Intent -->|Distributed multi-agent repository audit| DistAudit[distributed-code-audit]
-    Intent -->|Standards & spec compliance review| Review[code-review]
-    Intent -->|Strict maintainability & abstraction review| Thermo[thermo-nuclear-code-quality-review]
-    Intent -->|Strip accidental abstraction & simplify logic| Simplify[code-simplification]
-    Intent -->|Security audit, auth verification, OWASP| Sec[security-and-hardening]
-    Intent -->|Clean AI code boilerplate & comments| Deslop[deslop]
-    Intent -->|Strip AI tells & sycophancy from prose| Unslop[unslop]
+    %% Code quality and review
+    Intent -->|Multi-agent repository audit| DistAudit[distributed-code-audit]
+    Intent -->|Check coding standards and spec| Review[code-review]
+    Intent -->|Audit file size and conditionals| Thermo[thermo-nuclear-code-quality-review]
+    Intent -->|Simplify logic and remove extra abstractions| Simplify[code-simplification]
+    Intent -->|Security audit and vulnerability checks| Sec[security-and-hardening]
+    Intent -->|Remove AI code slop and clutter| Deslop[deslop]
+    Intent -->|Remove AI tells from writing| Unslop[unslop]
 
-    %% Implementation & Testing
-    Intent -->|Test-driven red-green-refactor loop| TDD[tdd]
+    %% Implementation and testing
+    Intent -->|Test-driven development| TDD[tdd]
 
-    %% Frontend & Mobile
-    Intent -->|Design distinctive, non-generic UI| FrontDesign[frontend-design]
-    Intent -->|Audit UI against Web Interface Guidelines / a11y| WebGuide[web-design-guidelines]
-    Intent -->|React / Next.js performance & composition| ReactRules[vercel-react-best-practices]
-    Intent -->|React Native / Expo lists & animations| NativeRules[vercel-react-native-skills]
+    %% Frontend and mobile
+    Intent -->|UI visual hierarchy and styling| FrontDesign[frontend-design]
+    Intent -->|Audit UI accessibility and guidelines| WebGuide[web-design-guidelines]
+    Intent -->|React and Next.js performance| ReactRules[vercel-react-best-practices]
+    Intent -->|React Native and Expo patterns| NativeRules[vercel-react-native-skills]
 ```
 
 ---
 
-## Available Skills by Category
+## Available skills by category
 
-### 1. Ideation, Scoping & Context
-- **`idea-refine`**: Clarifies concepts through structured divergent and convergent thinking.
-- **`grill-me`**: Relentless Socratic interview engine to stress-test plans before implementation.
-- **`grilling`**: Core interrogation engine backing `grill-me`.
-- **`context-engineering`**: Curates active file sets, rules, and token budgets to prevent context saturation.
-- **`caveman`**: Terse communication voice that cuts conversational fluff and saves up to 65% output tokens while preserving technical facts.
+### 1. Ideation, scoping, and context
 
-### 2. Architecture & Engineering Practices
-- **`system-design-docs`**: Orchestrates modular C4-aligned system design documentation (`docs/architecture/`) via parallel subagent extraction and verified Mermaid diagrams.
-- **`improve-codebase-architecture`**: Scans for shallow modules and produces interactive HTML architectural improvement reports.
-- **`ponytail`**: Lazy senior developer mode enforcing YAGNI, standard library reuse, minimal diffs, and anti-overengineering.
-- **`typescript-best-practices`**: Enforces strict typed boundaries, runtime validation, and domain modeling.
-- **`tdd`**: Disciplined test-driven development loop (red-green-refactor).
+- `idea-refine`. Clarifies concepts through structured divergent and convergent thinking.
+- `grill-me`. Interviews the user to test assumptions before implementation starts.
+- `grilling`. Core question engine used by `grill-me`.
+- `context-engineering`. Curates active file sets, rules, and token budgets to keep context within limits.
+- `caveman`. Strips conversational filler and saves tokens while preserving technical facts.
 
-### 3. Code Quality, Review & Anti-Slop
-- **`distributed-code-audit`**: Partitions large codebases across parallel dual-persona review agents and generates an interactive HTML scorecard dashboard.
-- **`code-review`**: Dual-pass review checking repository coding standards and original specification adherence.
-- **`code-simplification`**: Reduces unnecessary abstractions and complexity while strictly preserving exact runtime behavior.
-- **`security-and-hardening`**: Threat modeling (STRIDE), OWASP Top 10 auditing, auth checks, and dependency risk mitigation.
-- **`thermo-nuclear-code-quality-review`**: Ultra-strict review for tangled conditionals, monolithic files, and leaky abstractions.
-- **`deslop`**: Post-generation cleanup removing AI boilerplate, repetitive comments, and defensive clutter.
-- **`unslop`**: Prose review cutting filler words, sycophantic phrasing, and decorative patterns.
+### 2. Architecture and engineering practices
 
-### 4. Frontend, Design Systems & Mobile
-- **`frontend-design`**: Visual hierarchy, typography, and color guidance to avoid generic AI layout defaults.
-- **`web-design-guidelines`**: Audits web interfaces for accessibility (WCAG), keyboard navigation, and UX patterns.
-- **`vercel-react-best-practices`**: React/Next.js data fetching, caching, streaming, and server component rules.
-- **`vercel-react-native-skills`**: React Native and Expo performance patterns (lists, animations, native bridges).
+- `system-design-docs`. Extracts system architecture into C4 diagrams and markdown documents under `docs/architecture/` using subagents.
+- `improve-codebase-architecture`. Scans for shallow modules and produces an interactive HTML report.
+- `ponytail`. Favors minimal diffs, standard libraries, and simple solutions without extra abstractions.
+- `typescript-best-practices`. Enforces strict typed boundaries, runtime validation, and domain modeling.
+- `tdd`. Runs test-driven development cycles with red-green-refactor steps.
 
----
+### 3. Code quality, review, and anti-slop
 
-## Core Operating Behaviors
+- `distributed-code-audit`. Partitions large codebases across parallel review agents and generates an interactive HTML scorecard.
+- `code-review`. Runs two review passes to check repository coding standards and specification requirements.
+- `code-simplification`. Simplifies logic and removes unnecessary abstractions while preserving behavior.
+- `security-and-hardening`. Performs threat modeling, OWASP checks, authentication verification, and dependency audits.
+- `thermo-nuclear-code-quality-review`. Audits code for bloated files, tangled conditionals, and leaky abstractions.
+- `deslop`. Removes AI boilerplate, repetitive comments, and unnatural defensive checks from code.
+- `unslop`. Edits prose to remove AI writing patterns, filler phrases, and sycophantic tone.
 
-These principles govern agent execution across all skills:
+### 4. Frontend, design systems, and mobile
 
-1. **Surface Assumptions Early:**
-   State non-obvious assumptions before executing multi-file changes. Give the user an opportunity to correct course before rework is needed.
-
-2. **Manage Confusion Actively:**
-   When encountering contradictory requirements or confusing code, **stop and ask**. Do not guess or silently paper over discrepancies.
-
-3. **Push Back When Warranted:**
-   Avoid sycophancy. If a requested pattern introduces security vulnerabilities, severe performance regressions, or architectural debt, explain the concrete tradeoff and propose an alternative.
-
-4. **Enforce Simplicity & YAGNI:**
-   The cleanest code is code that was never written. Do not add speculative options, premature generalizations, or unnecessary helper layers.
-
-5. **Maintain Scope Discipline:**
-   Touch only what the task requires. Do not perform unsolicited refactoring of adjacent code or delete comments you do not yet understand.
-
-6. **Verify with Evidence:**
-   Every task requires verification (tests passing, linter/typecheck clean, build succeeding, or runtime validation). Never claim a task is complete based on assumptions alone.
+- `frontend-design`. Guides visual hierarchy, typography, and color palettes to avoid generic default styling.
+- `web-design-guidelines`. Audits web interfaces for accessibility, keyboard navigation, and layout consistency.
+- `vercel-react-best-practices`. Applies performance and composition rules for React and Next.js applications.
+- `vercel-react-native-skills`. Applies performance patterns for React Native and Expo, with an emphasis on lists and animations.
 
 ---
 
-## Typical Lifecycle Combinations
+## Core operating behaviors
 
-Skills are modular and can be chained:
+These rules govern agent execution across all skills:
 
-* **New Feature:** `idea-refine` → `grill-me` → `ponytail` / `tdd` → `code-simplification` → `deslop`
-* **Large Codebase Health Check:** `distributed-code-audit` → `improve-codebase-architecture` → `security-and-hardening`
-* **Documenting / Auditing System Architecture:** `system-design-docs` (generates modular C4 blueprints)
-* **Frontend Overhaul:** `frontend-design` → `web-design-guidelines` → `vercel-react-best-practices`
-* **Fast Terminal Iteration:** Activate `caveman` to keep conversation concise and save tokens during lengthy debug sessions.
+1. **Surface assumptions early.** State non-obvious assumptions before making multi-file changes so the user can correct course before rework begins.
+2. **Clarify confusion.** When encountering contradictory requirements or unclear code, stop and ask. Do not guess or silently patch over discrepancies.
+3. **Push back with tradeoffs.** If a requested change introduces security flaws, performance regressions, or unnecessary complexity, explain the tradeoff and propose an alternative.
+4. **Prefer simplicity.** Build only what the task requires. Do not add speculative configuration options, premature generalizations, or unused helper layers.
+5. **Maintain scope discipline.** Touch only the files needed for the task. Do not refactor adjacent code without asking or delete comments you do not understand.
+6. **Verify with evidence.** Verify every change with concrete evidence such as passing tests, clean type checks, successful builds, or runtime validation. Do not mark a task complete without verification.
+
+---
+
+## Common workflows
+
+Skills can be combined for specific workflows:
+
+- **New feature.** Clarify scope with `idea-refine`, test assumptions with `grill-me`, write minimal code with `ponytail` or `tdd`, simplify logic with `code-simplification`, and remove AI clutter with `deslop`.
+- **Codebase health check.** Run `distributed-code-audit` for a multi-agent review, inspect module depth with `improve-codebase-architecture`, and review vulnerabilities with `security-and-hardening`.
+- **Architecture documentation.** Run `system-design-docs` to extract system architecture into C4 diagrams and markdown documents.
+- **Frontend overhaul.** Establish visual guidelines with `frontend-design`, verify accessibility with `web-design-guidelines`, and optimize performance with `vercel-react-best-practices`.
+- **Low-token terminal work.** Turn on `caveman` to keep responses brief during long debugging sessions.
