@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   sync-skills:
@@ -32,14 +33,17 @@ jobs:
       - name: Verify skills discovery
         run: npx skills add . --list
 
-      - name: Commit and push updates
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add skills/
-          if git diff --staged --quiet; then
-            echo "No changes found across upstream skills."
-          else
-            git commit -m "chore(skills): sync updates from upstream repositories"
-            git push
-          fi
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(skills): sync updates from upstream repositories"
+          title: "chore(skills): sync updates from upstream repositories"
+          body: |
+            Automated weekly sync from upstream community repositories.
+
+            - Scanned upstream repositories: `mattpocock/skills`, `cursor/plugins`, `addyosmani/agent-skills`, `vercel-labs/agent-skills`, `anthropics/skills`.
+            - Verified skills discovery with `npx skills add . --list`.
+          branch: "chore/sync-upstream-skills"
+          base: "main"
+          delete-branch: true
