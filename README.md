@@ -26,13 +26,14 @@ npx skills add Bert0ns/agent-skills --skill distributed-code-audit -g
 
 ## Included skills
 
-### Ideation and scoping
+### Ideation, scoping, and context
 
 | Skill | Triggers | Description | Source |
 | :--- | :--- | :--- | :--- |
 | `idea-refine` | "ideate", "refine this idea", "stress-test my plan" | Clarifies concepts through structured divergent and convergent thinking. | `addyosmani/agent-skills` |
 | `grill-me` | "grill me", "interview me", "stress-test my thinking" | Interviews the user to test assumptions before implementation starts. | `mattpocock/skills` |
 | `grilling` | "grill", "grilling" | Core question engine used by grill-me. | `mattpocock/skills` |
+| `context-engineering` | "context engineering", new sessions, task switching | Curates files, rules, and token budgets to prevent agent context degradation. | `addyosmani/agent-skills` |
 
 ### Code quality, review, and anti-slop
 
@@ -52,10 +53,12 @@ npx skills add Bert0ns/agent-skills --skill distributed-code-audit -g
 | `improve-codebase-architecture` | "improve architecture", refactoring deep modules | Scans for shallow modules and produces an interactive HTML improvement report. | `mattpocock/skills` |
 | `typescript-best-practices` | Editing `.ts` or `.tsx` files | Applies rules for typed boundaries, runtime validation, and domain modeling. | `cursor/plugins` |
 
-### React and mobile engineering
+### Frontend, design systems, and mobile
 
 | Skill | Triggers | Description | Source |
 | :--- | :--- | :--- | :--- |
+| `frontend-design` | "frontend design", designing UI, styling | Directs visual hierarchy, typography, and color palettes to avoid generic AI layouts. | `anthropics/skills` |
+| `web-design-guidelines` | "review UI", "check accessibility", "audit design" | Audits interfaces against Web Interface Guidelines for accessibility, layout, and UX. | `vercel-labs/agent-skills` |
 | `vercel-react-best-practices` | React/Next.js data fetching, performance tuning | Performance and composition rules for React and Next.js applications. | `vercel-labs/agent-skills` |
 | `vercel-react-native-skills` | React Native, Expo, mobile app development | Performance patterns for React Native and Expo, with a focus on lists and animations. | `vercel-labs/agent-skills` |
 
@@ -68,8 +71,10 @@ npx skills add Bert0ns/agent-skills --skill distributed-code-audit -g
 ├── skills.sh.json
 ├── skills/
 │   ├── code-review/
+│   ├── context-engineering/
 │   ├── deslop/
 │   ├── distributed-code-audit/
+│   ├── frontend-design/
 │   ├── grill-me/
 │   ├── grilling/
 │   ├── idea-refine/
@@ -79,7 +84,8 @@ npx skills add Bert0ns/agent-skills --skill distributed-code-audit -g
 │   ├── typescript-best-practices/
 │   ├── unslop/
 │   ├── vercel-react-best-practices/
-│   └── vercel-react-native-skills/
+│   ├── vercel-react-native-skills/
+│   └── web-design-guidelines/
 ├── README.md
 └── .gitignore
 ```

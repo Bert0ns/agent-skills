@@ -3,12 +3,13 @@
   "notGrouped": "bottom",
   "groupings": [
     {
-      "title": "Ideation and scoping",
-      "description": "Clarify requirements, test assumptions, and explore design decisions.",
+      "title": "Ideation, scoping, and context",
+      "description": "Clarify requirements, test assumptions, and structure agent context for sessions.",
       "skills": [
         "idea-refine",
         "grill-me",
-        "grilling"
+        "grilling",
+        "context-engineering"
       ]
     },
     {
@@ -32,9 +33,11 @@
       ]
     },
     {
-      "title": "React and mobile engineering",
-      "description": "Performance patterns for React, Next.js, and React Native applications.",
+      "title": "Frontend, design systems, and mobile",
+      "description": "Visual design direction, web interface guidelines, and React/React Native performance.",
       "skills": [
+        "frontend-design",
+        "web-design-guidelines",
         "vercel-react-best-practices",
         "vercel-react-native-skills"
       ]
