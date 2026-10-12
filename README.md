@@ -6,17 +6,17 @@ Curated collection of procedural capabilities and playbooks for AI coding agents
 
 ### Install all skills globally (all projects & agents)
 ```bash
-npx skills add <your-github-username>/skills -g
+npx skills add Bert0ns/agent-skills -g
 ```
 
 ### Install into a specific project
 ```bash
-npx skills add <your-github-username>/skills
+npx skills add Bert0ns/agent-skills
 ```
 
 ### Install a specific skill
 ```bash
-npx skills add <your-github-username>/skills --skill unslop -g
+npx skills add Bert0ns/agent-skills --skill unslop -g
 ```
 
 ---
