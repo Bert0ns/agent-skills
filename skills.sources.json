@@ -2,11 +2,25 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "version": 1,
   "skills": {
+    "caveman": {
+      "type": "community",
+      "author": "JuliusBrussee",
+      "repository": "https://github.com/JuliusBrussee/caveman",
+      "path": "skills/caveman",
+      "sync": true
+    },
     "code-review": {
       "type": "community",
       "author": "mattpocock",
       "repository": "https://github.com/mattpocock/skills",
       "path": "skills/engineering/code-review",
+      "sync": true
+    },
+    "code-simplification": {
+      "type": "community",
+      "author": "addyosmani",
+      "repository": "https://github.com/addyosmani/agent-skills",
+      "path": "skills/code-simplification",
       "sync": true
     },
     "context-engineering": {
@@ -66,6 +80,28 @@
       "path": "skills/engineering/improve-codebase-architecture",
       "sync": true
     },
+    "ponytail": {
+      "type": "community",
+      "author": "DietrichGebert",
+      "repository": "https://github.com/DietrichGebert/ponytail",
+      "path": "skills/ponytail",
+      "sync": true
+    },
+    "security-and-hardening": {
+      "type": "community",
+      "author": "addyosmani",
+      "repository": "https://github.com/addyosmani/agent-skills",
+      "path": "skills/security-and-hardening",
+      "sync": true
+    },
+    "system-design-docs": {
+      "type": "custom",
+      "author": "Bert0ns",
+      "repository": "local",
+      "project": "bertons-me",
+      "path": ".agents/skills/system-design-architect",
+      "sync": false
+    },
     "tdd": {
       "type": "community",
       "author": "mattpocock",
@@ -93,6 +129,14 @@
       "repository": "https://github.com/cursor/plugins",
       "path": "pstack/skills/unslop",
       "sync": true
+    },
+    "using-agent-skills": {
+      "type": "custom",
+      "author": "Bert0ns",
+      "repository": "local",
+      "project": "agent-skills",
+      "path": "skills/using-agent-skills",
+      "sync": false
     },
     "vercel-react-best-practices": {
       "type": "community",

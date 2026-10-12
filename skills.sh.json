@@ -3,13 +3,21 @@
   "notGrouped": "bottom",
   "groupings": [
     {
+      "title": "Meta, routing, and workflows",
+      "description": "Discover applicable skills, route tasks to workflows, and establish core agent discipline.",
+      "skills": [
+        "using-agent-skills"
+      ]
+    },
+    {
       "title": "Ideation, scoping, and context",
       "description": "Clarify requirements, test assumptions, and structure agent context for sessions.",
       "skills": [
         "idea-refine",
         "grill-me",
         "grilling",
-        "context-engineering"
+        "context-engineering",
+        "caveman"
       ]
     },
     {
@@ -18,6 +26,8 @@
       "skills": [
         "distributed-code-audit",
         "code-review",
+        "code-simplification",
+        "security-and-hardening",
         "thermo-nuclear-code-quality-review",
         "deslop",
         "unslop"
@@ -25,10 +35,12 @@
     },
     {
       "title": "Architecture and engineering practices",
-      "description": "Test-driven development, deep module design, and TypeScript practices.",
+      "description": "Test-driven development, system design blueprints, deep module design, and TypeScript practices.",
       "skills": [
+        "system-design-docs",
         "tdd",
         "improve-codebase-architecture",
+        "ponytail",
         "typescript-best-practices"
       ]
     },
