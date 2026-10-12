@@ -1,52 +1,49 @@
 #!/usr/bin/env python3
 """
 Sync skills from upstream community repositories into the local skills/ directory.
-Excludes custom/local skills like distributed-code-audit.
+Sources and upstream mappings are loaded from skills.sources.json.
 """
 
+import json
 import os
 import shutil
 import subprocess
-import tempfile
 import sys
+import tempfile
 
-# Mapping: skill_name -> (git_repo_url, relative_path_in_repo)
-UPSTREAM_MAP = {
-    # mattpocock/skills
-    "code-review": ("https://github.com/mattpocock/skills.git", "skills/engineering/code-review"),
-    "grill-me": ("https://github.com/mattpocock/skills.git", "skills/productivity/grill-me"),
-    "grilling": ("https://github.com/mattpocock/skills.git", "skills/productivity/grilling"),
-    "tdd": ("https://github.com/mattpocock/skills.git", "skills/engineering/tdd"),
-    "improve-codebase-architecture": ("https://github.com/mattpocock/skills.git", "skills/engineering/improve-codebase-architecture"),
 
-    # cursor/plugins
-    "unslop": ("https://github.com/cursor/plugins.git", "pstack/skills/unslop"),
-    "deslop": ("https://github.com/cursor/plugins.git", "cursor-team-kit/skills/deslop"),
-    "thermo-nuclear-code-quality-review": ("https://github.com/cursor/plugins.git", "thermos/skills/thermo-nuclear-code-quality-review"),
-    "typescript-best-practices": ("https://github.com/cursor/plugins.git", "pstack/skills/typescript-best-practices"),
-
-    # addyosmani/agent-skills
-    "idea-refine": ("https://github.com/addyosmani/agent-skills.git", "skills/idea-refine"),
-    "context-engineering": ("https://github.com/addyosmani/agent-skills.git", "skills/context-engineering"),
-
-    # vercel-labs/agent-skills
-    "vercel-react-best-practices": ("https://github.com/vercel-labs/agent-skills.git", "skills/react-best-practices"),
-    "vercel-react-native-skills": ("https://github.com/vercel-labs/agent-skills.git", "skills/react-native-skills"),
-    "web-design-guidelines": ("https://github.com/vercel-labs/agent-skills.git", "skills/web-design-guidelines"),
-
-    # anthropics/skills
-    "frontend-design": ("https://github.com/anthropics/skills.git", "skills/frontend-design"),
-}
+def load_sources(sources_path):
+    with open(sources_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    return data.get("skills", {})
 
 
 def main():
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    sources_path = os.path.join(repo_root, "skills.sources.json")
     skills_dir = os.path.join(repo_root, "skills")
     os.makedirs(skills_dir, exist_ok=True)
 
+    if not os.path.exists(sources_path):
+        print(f"Error: {sources_path} not found.", file=sys.stderr)
+        sys.exit(1)
+
+    sources = load_sources(sources_path)
+
+    # Filter skills configured for upstream sync
+    sync_targets = {
+        name: config
+        for name, config in sources.items()
+        if config.get("sync", False) and config.get("repository") != "local"
+    }
+
     # Group target skills by upstream repository to clone each repo only once
     repos = {}
-    for skill_name, (repo_url, rel_path) in UPSTREAM_MAP.items():
+    for skill_name, config in sync_targets.items():
+        repo_url = config["repository"]
+        if not repo_url.endswith(".git"):
+            repo_url = f"{repo_url}.git"
+        rel_path = config["path"]
         repos.setdefault(repo_url, []).append((skill_name, rel_path))
 
     tmp_dir = tempfile.mkdtemp(prefix="skills-sync-")
@@ -68,7 +65,10 @@ def main():
                 dest_skill_path = os.path.join(skills_dir, skill_name)
 
                 if not os.path.exists(src_skill_path):
-                    print(f"WARNING: Source path not found for {skill_name}: {src_skill_path}", file=sys.stderr)
+                    print(
+                        f"WARNING: Source path not found for {skill_name}: {src_skill_path}",
+                        file=sys.stderr,
+                    )
                     continue
 
                 if os.path.exists(dest_skill_path):

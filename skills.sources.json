@@ -1,0 +1,119 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": 1,
+  "skills": {
+    "code-review": {
+      "type": "community",
+      "author": "mattpocock",
+      "repository": "https://github.com/mattpocock/skills",
+      "path": "skills/engineering/code-review",
+      "sync": true
+    },
+    "context-engineering": {
+      "type": "community",
+      "author": "addyosmani",
+      "repository": "https://github.com/addyosmani/agent-skills",
+      "path": "skills/context-engineering",
+      "sync": true
+    },
+    "deslop": {
+      "type": "community",
+      "author": "cursor",
+      "repository": "https://github.com/cursor/plugins",
+      "path": "cursor-team-kit/skills/deslop",
+      "sync": true
+    },
+    "distributed-code-audit": {
+      "type": "custom",
+      "author": "Bert0ns",
+      "repository": "local",
+      "project": "bertons-me",
+      "path": ".agents/skills/distributed-code-audit",
+      "sync": false
+    },
+    "frontend-design": {
+      "type": "community",
+      "author": "anthropics",
+      "repository": "https://github.com/anthropics/skills",
+      "path": "skills/frontend-design",
+      "sync": true
+    },
+    "grill-me": {
+      "type": "community",
+      "author": "mattpocock",
+      "repository": "https://github.com/mattpocock/skills",
+      "path": "skills/productivity/grill-me",
+      "sync": true
+    },
+    "grilling": {
+      "type": "community",
+      "author": "mattpocock",
+      "repository": "https://github.com/mattpocock/skills",
+      "path": "skills/productivity/grilling",
+      "sync": true
+    },
+    "idea-refine": {
+      "type": "community",
+      "author": "addyosmani",
+      "repository": "https://github.com/addyosmani/agent-skills",
+      "path": "skills/idea-refine",
+      "sync": true
+    },
+    "improve-codebase-architecture": {
+      "type": "community",
+      "author": "mattpocock",
+      "repository": "https://github.com/mattpocock/skills",
+      "path": "skills/engineering/improve-codebase-architecture",
+      "sync": true
+    },
+    "tdd": {
+      "type": "community",
+      "author": "mattpocock",
+      "repository": "https://github.com/mattpocock/skills",
+      "path": "skills/engineering/tdd",
+      "sync": true
+    },
+    "thermo-nuclear-code-quality-review": {
+      "type": "community",
+      "author": "cursor",
+      "repository": "https://github.com/cursor/plugins",
+      "path": "thermos/skills/thermo-nuclear-code-quality-review",
+      "sync": true
+    },
+    "typescript-best-practices": {
+      "type": "community",
+      "author": "cursor",
+      "repository": "https://github.com/cursor/plugins",
+      "path": "pstack/skills/typescript-best-practices",
+      "sync": true
+    },
+    "unslop": {
+      "type": "community",
+      "author": "cursor",
+      "repository": "https://github.com/cursor/plugins",
+      "path": "pstack/skills/unslop",
+      "sync": true
+    },
+    "vercel-react-best-practices": {
+      "type": "community",
+      "author": "vercel-labs",
+      "repository": "https://github.com/vercel-labs/agent-skills",
+      "path": "skills/react-best-practices",
+      "sync": true
+    },
+    "vercel-react-native-skills": {
+      "type": "community",
+      "author": "vercel-labs",
+      "repository": "https://github.com/vercel-labs/agent-skills",
+      "path": "skills/react-native-skills",
+      "sync": true
+    },
+    "web-design-guidelines": {
+      "type": "community",
+      "author": "vercel-labs",
+      "repository": "https://github.com/vercel-labs/agent-skills",
+      "path": "skills/web-design-guidelines",
+      "sync": true
+    }
+  }
+}
