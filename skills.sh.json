@@ -3,8 +3,8 @@
   "notGrouped": "bottom",
   "groupings": [
     {
-      "title": "Ideation & Scoping",
-      "description": "Stress-test ideas, sharpen requirements, and drill down on design decisions.",
+      "title": "Ideation and scoping",
+      "description": "Clarify requirements, test assumptions, and explore design decisions.",
       "skills": [
         "idea-refine",
         "grill-me",
@@ -12,8 +12,8 @@
       ]
     },
     {
-      "title": "Code Quality, Review & Anti-Slop",
-      "description": "Strict maintainability audits, multi-axis reviews, distributed code audits, and removing AI tells from code and prose.",
+      "title": "Code quality, review, and anti-slop",
+      "description": "Code audits, standards and spec reviews, and cleanup for AI-generated code and text.",
       "skills": [
         "distributed-code-audit",
         "code-review",
@@ -23,8 +23,8 @@
       ]
     },
     {
-      "title": "Architecture & Engineering Practices",
-      "description": "Test-driven development, deep module architecture, and robust TypeScript conventions.",
+      "title": "Architecture and engineering practices",
+      "description": "Test-driven development, deep module design, and TypeScript practices.",
       "skills": [
         "tdd",
         "improve-codebase-architecture",
@@ -32,8 +32,8 @@
       ]
     },
     {
-      "title": "React & Mobile Engineering",
-      "description": "High-performance patterns and best practices for React, Next.js, and React Native.",
+      "title": "React and mobile engineering",
+      "description": "Performance patterns for React, Next.js, and React Native applications.",
       "skills": [
         "vercel-react-best-practices",
         "vercel-react-native-skills"

@@ -1,64 +1,71 @@
-# Personal Agent Skills Collection
+# Agent skills
 
-Curated collection of procedural capabilities and playbooks for AI coding agents (compatible with Antigravity, Claude Code, Cursor, Codex, Windsurf, and Gemini CLI), indexed on [skills.sh](https://skills.sh/).
+Skills for coding agents such as Antigravity, Claude Code, Cursor, Codex, Windsurf, and Gemini CLI, indexed on [skills.sh](https://skills.sh/).
 
-## 🚀 Quick Install
+## Quick install
 
-### Install all skills globally (all projects & agents)
+### Install all skills globally
+
 ```bash
 npx skills add Bert0ns/agent-skills -g
 ```
 
-### Install into a specific project
+### Install into a project
+
 ```bash
 npx skills add Bert0ns/agent-skills
 ```
 
 ### Install a specific skill
+
 ```bash
 npx skills add Bert0ns/agent-skills --skill distributed-code-audit -g
 ```
 
 ---
 
-## 📦 Included Skills Catalog
+## Included skills
 
-### 💡 Ideation & Scoping
-| Skill | Trigger / When to Use | Description | Source |
-| :--- | :--- | :--- | :--- |
-| **`idea-refine`** | "ideate", "refine this idea", "stress-test my plan" | Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinking. | `addyosmani/agent-skills` |
-| **`grill-me`** | "grill me", "interview me", "stress-test my thinking" | Relentless interview loop to stress-test an idea, plan, or system design before writing code. | `mattpocock/skills` |
-| **`grilling`** | "grill", "grilling" | Core design-tree interrogation engine powering `grill-me`. | `mattpocock/skills` |
+### Ideation and scoping
 
-### 🧹 Code Quality, Review & Anti-Slop
-| Skill | Trigger / When to Use | Description | Source |
+| Skill | Triggers | Description | Source |
 | :--- | :--- | :--- | :--- |
-| **`distributed-code-audit`** | "codebase audit", "deep review", "full code quality inspection" | In-depth partitioned codebase audit using parallel dual-persona agents, generating an interactive HTML dashboard and remediation plan. | `bertons-me` |
-| **`code-review`** | "review PR", "review since main", diff audits | Parallel two-axis review checking both adherence to repository coding standards and spec fulfillment. | `mattpocock/skills` |
-| **`thermo-nuclear-code-quality-review`** | "thermonuclear review", deep code quality audit | Ultra-strict maintainability review flagging leaking abstractions, bloated files, and spaghetti conditions. | `cursor/plugins` |
-| **`deslop`** | Post-generation code cleanup, branch diffs | Removes AI-generated code slop, overly verbose stubs, and restores clean idioms. | `cursor/plugins` |
-| **`unslop`** | Text editing, docs, blog posts, AI writing review | Cuts AI tells, buzzwords, and boilerplate from written prose and documentation. | `cursor/plugins` |
+| `idea-refine` | "ideate", "refine this idea", "stress-test my plan" | Clarifies concepts through structured divergent and convergent thinking. | `addyosmani/agent-skills` |
+| `grill-me` | "grill me", "interview me", "stress-test my thinking" | Interviews the user to test assumptions before implementation starts. | `mattpocock/skills` |
+| `grilling` | "grill", "grilling" | Core question engine used by grill-me. | `mattpocock/skills` |
 
-### 🛠️ Architecture & Engineering Practices
-| Skill | Trigger / When to Use | Description | Source |
-| :--- | :--- | :--- | :--- |
-| **`tdd`** | "tdd", "red-green-refactor", building new features | Strict test-driven development loop emphasizing behavior over implementation details. | `mattpocock/skills` |
-| **`improve-codebase-architecture`** | "improve architecture", refactoring deep modules | Scans the codebase for deepening opportunities and presents a structured interactive report. | `mattpocock/skills` |
-| **`typescript-best-practices`** | Editing `.ts` or `.tsx` files | Type-system discipline: illegal states unrepresentable, branded primitives, boundary validation. | `cursor/plugins` |
+### Code quality, review, and anti-slop
 
-### ⚛️ React & Mobile Engineering
-| Skill | Trigger / When to Use | Description | Source |
+| Skill | Triggers | Description | Source |
 | :--- | :--- | :--- | :--- |
-| **`vercel-react-best-practices`** | React/Next.js data fetching, performance tuning | Complete catalog of React and Next.js performance and composition rules from Vercel Engineering. | `vercel-labs/agent-skills` |
-| **`vercel-react-native-skills`** | React Native, Expo, mobile app development | Mobile-specific best practices, list performance, native module integration, and reanimated tips. | `vercel-labs/agent-skills` |
+| `distributed-code-audit` | "codebase audit", "deep review", "full code quality inspection" | Partitions large repositories across parallel review agents and generates an HTML scorecard. | `bertons-me` |
+| `code-review` | "review PR", "review since main", diff audits | Runs two parallel review passes for repo coding standards and task specifications. | `mattpocock/skills` |
+| `thermo-nuclear-code-quality-review` | "thermonuclear review", deep code quality audit | Inspects code for bloated files, tangled conditionals, and leaky abstractions. | `cursor/plugins` |
+| `deslop` | Post-generation cleanup, branch diffs | Removes AI boilerplate, excessive comments, and unnatural defensive checks from code. | `cursor/plugins` |
+| `unslop` | Text review, documentation, prose edits | Removes AI filler words, sycophantic phrasing, and decorative patterns from prose. | `cursor/plugins` |
+
+### Architecture and engineering practices
+
+| Skill | Triggers | Description | Source |
+| :--- | :--- | :--- | :--- |
+| `tdd` | "tdd", "red-green-refactor", building new features | Guides test-driven development using red-green-refactor cycles. | `mattpocock/skills` |
+| `improve-codebase-architecture` | "improve architecture", refactoring deep modules | Scans for shallow modules and produces an interactive HTML improvement report. | `mattpocock/skills` |
+| `typescript-best-practices` | Editing `.ts` or `.tsx` files | Applies rules for typed boundaries, runtime validation, and domain modeling. | `cursor/plugins` |
+
+### React and mobile engineering
+
+| Skill | Triggers | Description | Source |
+| :--- | :--- | :--- | :--- |
+| `vercel-react-best-practices` | React/Next.js data fetching, performance tuning | Performance and composition rules for React and Next.js applications. | `vercel-labs/agent-skills` |
+| `vercel-react-native-skills` | React Native, Expo, mobile app development | Performance patterns for React Native and Expo, with a focus on lists and animations. | `vercel-labs/agent-skills` |
 
 ---
 
-## 🛠️ Repository Structure
+## Repository structure
 
 ```text
 .
-├── skills.sh.json                         # Directory grouping and display configuration for skills.sh
+├── skills.sh.json
 ├── skills/
 │   ├── code-review/
 │   ├── deslop/
@@ -79,22 +86,22 @@ npx skills add Bert0ns/agent-skills --skill distributed-code-audit -g
 
 ---
 
-## ➕ Adding a New Skill
+## Adding a skill
 
-1. Initialize a new skill directory:
+1. Create a new skill directory:
    ```bash
    npx skills init <skill-name>
    ```
-2. Place the resulting folder inside `skills/<skill-name>`.
-3. Add your procedural rules and guidelines into `skills/<skill-name>/SKILL.md`.
-4. Register the new skill slug under the appropriate group in `skills.sh.json`.
-5. Commit and push to GitHub.
+2. Move the directory into `skills/<skill-name>`.
+3. Add instructions and examples in `skills/<skill-name>/SKILL.md`.
+4. Add the skill name to the desired group in `skills.sh.json`.
+5. Commit and push the changes.
 
 ---
 
-## 🔄 Updating Installed Skills
+## Updating installed skills
 
-To fetch updates across your machines:
+To update installed skills:
 ```bash
 npx skills update -g
 ```
