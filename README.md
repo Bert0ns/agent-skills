@@ -16,7 +16,7 @@ npx skills add Bert0ns/agent-skills
 
 ### Install a specific skill
 ```bash
-npx skills add Bert0ns/agent-skills --skill unslop -g
+npx skills add Bert0ns/agent-skills --skill distributed-code-audit -g
 ```
 
 ---
@@ -33,10 +33,11 @@ npx skills add Bert0ns/agent-skills --skill unslop -g
 ### 🧹 Code Quality, Review & Anti-Slop
 | Skill | Trigger / When to Use | Description | Source |
 | :--- | :--- | :--- | :--- |
-| **`unslop`** | Text editing, docs, blog posts, AI writing review | Cuts AI tells, buzzwords, and boilerplate from written prose and documentation. | `cursor/plugins` |
-| **`deslop`** | Post-generation code cleanup, branch diffs | Removes AI-generated code slop, overly verbose stubs, and restores clean idioms. | `cursor/plugins` |
+| **`distributed-code-audit`** | "codebase audit", "deep review", "full code quality inspection" | In-depth partitioned codebase audit using parallel dual-persona agents, generating an interactive HTML dashboard and remediation plan. | `bertons-me` |
 | **`code-review`** | "review PR", "review since main", diff audits | Parallel two-axis review checking both adherence to repository coding standards and spec fulfillment. | `mattpocock/skills` |
 | **`thermo-nuclear-code-quality-review`** | "thermonuclear review", deep code quality audit | Ultra-strict maintainability review flagging leaking abstractions, bloated files, and spaghetti conditions. | `cursor/plugins` |
+| **`deslop`** | Post-generation code cleanup, branch diffs | Removes AI-generated code slop, overly verbose stubs, and restores clean idioms. | `cursor/plugins` |
+| **`unslop`** | Text editing, docs, blog posts, AI writing review | Cuts AI tells, buzzwords, and boilerplate from written prose and documentation. | `cursor/plugins` |
 
 ### 🛠️ Architecture & Engineering Practices
 | Skill | Trigger / When to Use | Description | Source |
@@ -57,10 +58,11 @@ npx skills add Bert0ns/agent-skills --skill unslop -g
 
 ```text
 .
-├── skills.sh.json                 # Directory grouping and display configuration for skills.sh
+├── skills.sh.json                         # Directory grouping and display configuration for skills.sh
 ├── skills/
 │   ├── code-review/
 │   ├── deslop/
+│   ├── distributed-code-audit/
 │   ├── grill-me/
 │   ├── grilling/
 │   ├── idea-refine/

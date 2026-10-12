@@ -13,12 +13,13 @@
     },
     {
       "title": "Code Quality, Review & Anti-Slop",
-      "description": "Strict maintainability audits, multi-axis reviews, and removing AI tells from code and prose.",
+      "description": "Strict maintainability audits, multi-axis reviews, distributed code audits, and removing AI tells from code and prose.",
       "skills": [
-        "deslop",
-        "unslop",
+        "distributed-code-audit",
         "code-review",
-        "thermo-nuclear-code-quality-review"
+        "thermo-nuclear-code-quality-review",
+        "deslop",
+        "unslop"
       ]
     },
     {
