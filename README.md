@@ -37,41 +37,41 @@ npx skills add Bert0ns/agent-skills --skill distributed-code-audit -g
 | Skill | Triggers | Description | Source |
 | :--- | :--- | :--- | :--- |
 | `idea-refine` | "ideate", "refine this idea", "stress-test my plan" | Clarifies concepts through structured divergent and convergent thinking. | `addyosmani/agent-skills` |
-| `grill-me` | "grill me", "interview me", "stress-test my thinking" | Interviews the user to test assumptions before implementation starts. | `mattpocock/skills` |
-| `grilling` | "grill", "grilling" | Core question engine used by `grill-me`. | `mattpocock/skills` |
-| `context-engineering` | "context engineering", new sessions, task switching | Curates files, rules, and token budgets to keep context within limits. | `addyosmani/agent-skills` |
-| `caveman` | "/caveman", "caveman mode", "be brief", "less tokens" | Terse communication mode that strips conversational filler while preserving technical facts. | `JuliusBrussee/caveman` |
+| `grill-me` | "grill me", "interview me", "stress-test my thinking" | Interviews user to test assumptions before building. | `mattpocock/skills` |
+| `grilling` | "grill", "grilling" | Question engine backing `grill-me`. | `mattpocock/skills` |
+| `context-engineering` | "context engineering", new sessions, task switching | Curates active files, rules, and token budgets to keep context within limits. | `addyosmani/agent-skills` |
+| `caveman` | "/caveman", "caveman mode", "be brief", "less tokens" | Terse communication voice that cuts fluff and saves tokens while keeping technical facts. | `JuliusBrussee/caveman` |
 
 ### Code quality, review, and anti-slop
 
 | Skill | Triggers | Description | Source |
 | :--- | :--- | :--- | :--- |
-| `distributed-code-audit` | "codebase audit", "deep review", "full code quality inspection" | Partitions large repositories across parallel review agents and generates an HTML scorecard. | `bertons-me` |
-| `code-review` | "review PR", "review since main", diff audits | Runs two review passes to check repository coding standards and task specifications. | `mattpocock/skills` |
-| `code-simplification` | "simplify code", "reduce complexity", refactoring for clarity | Simplifies logic and removes unnecessary abstractions while preserving behavior. | `addyosmani/agent-skills` |
-| `security-and-hardening` | "security review", "audit vulnerabilities", auth & input validation | Audits code against OWASP Top 10 vulnerabilities, authentication flaws, and dependency risks. | `addyosmani/agent-skills` |
-| `thermo-nuclear-code-quality-review` | "thermonuclear review", deep code quality audit | Audits code for bloated files, tangled conditionals, and leaky abstractions. | `cursor/plugins` |
-| `deslop` | Post-generation cleanup, branch diffs | Removes AI boilerplate, repetitive comments, and unnatural defensive checks from code. | `cursor/plugins` |
-| `unslop` | Text review, documentation, prose edits | Edits prose to remove AI writing patterns, filler phrases, and sycophantic tone. | `cursor/plugins` |
+| `distributed-code-audit` | "codebase audit", "deep review", "full code quality inspection" | Partitions codebase across parallel review agents and generates an HTML scorecard. | `bertons-me` |
+| `code-review` | "review PR", "review since main", diff audits | Runs two review passes for repository standards and task specs. | `mattpocock/skills` |
+| `code-simplification` | "simplify code", "reduce complexity", refactoring for clarity | Simplifies logic and cuts unnecessary abstractions without breaking behavior. | `addyosmani/agent-skills` |
+| `security-and-hardening` | "security review", "audit vulnerabilities", auth & input validation | Audits code against OWASP Top 10, auth flaws, and dependency risks. | `addyosmani/agent-skills` |
+| `thermo-nuclear-code-quality-review` | "thermonuclear review", deep code quality audit | Audits code for bloated files, tangled logic, and leaky abstractions. | `cursor/plugins` |
+| `deslop` | Post-generation cleanup, branch diffs | Removes AI boilerplate, duplicate comments, and defensive clutter from code. | `cursor/plugins` |
+| `unslop` | Text review, documentation, prose edits | Cuts AI writing tells, filler phrases, and sycophantic phrasing from prose. | `cursor/plugins` |
 
 ### Architecture and engineering practices
 
 | Skill | Triggers | Description | Source |
 | :--- | :--- | :--- | :--- |
-| `system-design-docs` | "system design", "document architecture", C4 blueprints, drift audit | Extracts system architecture into C4 diagrams and markdown documents under `docs/architecture/` using subagents. | `bertons-me` |
-| `tdd` | "tdd", "red-green-refactor", building new features | Guides test-driven development using red-green-refactor cycles. | `mattpocock/skills` |
-| `improve-codebase-architecture` | "improve architecture", refactoring deep modules | Scans for shallow modules and produces an interactive HTML improvement report. | `mattpocock/skills` |
-| `ponytail` | "ponytail", "be lazy", "simplest solution", "yagni" | Favors minimal diffs, standard libraries, and simple solutions without extra abstractions. | `DietrichGebert/ponytail` |
+| `system-design-docs` | "system design", "document architecture", C4 blueprints, drift audit | Extracts system architecture into C4 diagrams and markdown documents with subagents. | `bertons-me` |
+| `tdd` | "tdd", "red-green-refactor", building new features | Guides test-driven development with red-green-refactor loops. | `mattpocock/skills` |
+| `improve-codebase-architecture` | "improve architecture", refactoring deep modules | Scans shallow modules and generates an interactive HTML report. | `mattpocock/skills` |
+| `ponytail` | "ponytail", "be lazy", "simplest solution", "yagni" | Smallest working change, minimal diffs, standard libraries, and no bloat. | `DietrichGebert/ponytail` |
 | `typescript-best-practices` | Editing `.ts` or `.tsx` files | Enforces typed boundaries, runtime validation, and domain modeling. | `cursor/plugins` |
 
 ### Frontend, design systems, and mobile
 
 | Skill | Triggers | Description | Source |
 | :--- | :--- | :--- | :--- |
-| `frontend-design` | "frontend design", designing UI, styling | Guides visual hierarchy, typography, and color palettes to avoid generic default styling. | `anthropics/skills` |
+| `frontend-design` | "frontend design", designing UI, styling | Directs visual hierarchy, typography, and color to avoid generic default styling. | `anthropics/skills` |
 | `web-design-guidelines` | "review UI", "check accessibility", "audit design" | Audits interfaces for accessibility, keyboard navigation, and layout consistency. | `vercel-labs/agent-skills` |
-| `vercel-react-best-practices` | React/Next.js data fetching, performance tuning | Applies performance and composition rules for React and Next.js applications. | `vercel-labs/agent-skills` |
-| `vercel-react-native-skills` | React Native, Expo, mobile app development | Applies performance patterns for React Native and Expo, with an emphasis on lists and animations. | `vercel-labs/agent-skills` |
+| `vercel-react-best-practices` | React/Next.js data fetching, performance tuning | Performance and composition rules for React and Next.js applications. | `vercel-labs/agent-skills` |
+| `vercel-react-native-skills` | React Native, Expo, mobile app development | Performance patterns for React Native and Expo lists and animations. | `vercel-labs/agent-skills` |
 
 ---
 
@@ -131,7 +131,7 @@ npx skills add Bert0ns/agent-skills --skill distributed-code-audit -g
 
 ## Automated weekly sync
 
-A GitHub Actions workflow at `.github/workflows/update-skills.yml` runs every Monday at 04:00 UTC. The workflow reads upstream repository mappings from `skills.sources.json`, runs `scripts/sync-upstream.py` to clone sources, updates files in `skills/`, verifies discovery, and opens a pull request against `main` when changes exist. Custom skills such as `distributed-code-audit`, `system-design-docs`, and `using-agent-skills` remain untouched.
+A GitHub Actions workflow at `.github/workflows/update-skills.yml` runs every Monday at 04:00 UTC. It reads mappings from `skills.sources.json`, syncs upstream repos with `scripts/sync-upstream.py`, updates `skills/`, and opens a pull request against `main`. Custom skills (`distributed-code-audit`, `system-design-docs`, `using-agent-skills`) remain untouched.
 
 To trigger the sync manually:
 ```bash
