@@ -68,6 +68,11 @@ npx skills add Bert0ns/agent-skills --skill distributed-code-audit -g
 
 ```text
 .
+├── .github/
+│   └── workflows/
+│       └── update-skills.yml
+├── scripts/
+│   └── sync-upstream.py
 ├── skills.sh.json
 ├── skills/
 │   ├── code-review/
@@ -105,9 +110,20 @@ npx skills add Bert0ns/agent-skills --skill distributed-code-audit -g
 
 ---
 
+## Automated weekly sync
+
+A GitHub Actions workflow runs every Monday at 04:00 UTC (`.github/workflows/update-skills.yml`). The workflow clones upstream repositories via `scripts/sync-upstream.py`, updates files in `skills/`, verifies discovery, and pushes updates to `main`. Custom skills like `distributed-code-audit` are preserved.
+
+To trigger the sync manually:
+```bash
+gh workflow run update-skills.yml
+```
+
+---
+
 ## Updating installed skills
 
-To update installed skills:
+To update installed skills across all local agents:
 ```bash
 npx skills update -g
 ```
